@@ -20,6 +20,9 @@ $black: #454658;
     padding: 0;
     font-size: 10px;
 }
+body{
+    overflow-x: hidden;
+}
 
 .row {
     max-width: $max-width;
