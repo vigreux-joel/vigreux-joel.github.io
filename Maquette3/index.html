@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./webfiles/css/style.css">
+    <meta name="description" content="Site de la Maquette n°3">
+    <title>Maquette n°3</title>
+
+    <link rel="stylesheet" href="./webfiles/js/highlight/styles/default.min.css">
+    <link rel="stylesheet" href="./webfiles/js/aos-master/dist/aos.css">
+
+
+
+</head>
+<body>
+    <header>
+        <div class="row">
+            <img id="logo" src="./src/img/logo.svg" alt="Logo-Qovery">
+
+            <div class="col" id="home" data-aos="fade-right">
+                <h1 >Qovery Engine</h1>
+                <iframe
+                    src="https://ghbtns.com/github-btn.html?user=qovery&amp;repo=engine&amp;type=star&amp;count=true"
+                    title="Qovery Engine Github"></iframe>
+                <p>Abstraction layer to deploy microservices applications on any Cloud provider.</p>
+                <p>Qovery Engine is an open-source abstraction layer product that turns easy apps deployment on AWS,
+                    GCP, Azure and
+                    others Cloud providers. 
+                </p>
+                <a class="button" href="https://example.com/" target="_blank" title="Redirection to Github">
+                    <img src="./src/img/icone-github.svg" alt="Logo-Github">
+                    <span>Join us on Discord</span>
+                </a>
+                <a class="button" href="https://example.com/" target="_blank" title="Redirection to Github">
+                    <img src="./src/img/icone-discord.svg" alt="Logo-Discord">
+                    <span>Join us on Discord</span>
+                </a>
+
+            </div>
+
+            <div class="col" id="schem">
+                <img src="./src/img/schem.svg" alt="Schem">
+            </div>
+
+
+        </div>
+    </header>
+
+    <main>
+        <div class="row" >
+            <div class="col" id="how-work" >
+                <div data-aos="fade-up">
+                    <h2>How does it work? </h2>
+                    <p>Qovery Engine is an open-source abstraction layer product that turns easy apps deployment on AWS,
+                    GCP, Azure and others Cloud providers. The Qovery Engine is coded in Rust and takes advantage of
+                    Terraform, Helm, Kubectl, Docker to manage resources.</p>
+                </div>
+                <img src="./src/img/schem-work.svg" alt="Schem">
+            </div>
+            <div class="col" id="usage">
+                <div data-aos="fade-left">
+                    <h2>Usage</h2>
+                    <p>Initialize EKS (AWS Kubernetes) and ECR (AWS container registry) on AWS</p>
+                </div>
+                <img src="./src/img/schem-usage.svg" alt="Schem" id="schem-usage">
+                <div id="code">
+                    <h3>RUST</h3>
+                    <pre>
+                        <code >
+let engine = Engine::new(
+    context, // parameters
+    local_docker, // initialize Docker as a Build Platform
+    ecr, // initialize Elastic Container Registry
+    aws, // initialize AWS account
+    cloudflare, // initialize Cloudflare as DNS Nameservers
+);
+
+let session = match engine.session() {
+    Ok(session) => session, // get the session
+    Err(config_error) => panic!("configuration error {:?}", config_error),
+};
+
+let mut tx = session.transaction();
+
+// create EKS (AWS managed Kubernetes cluster)
+tx.create_kubernetes(&eks);
+
+// create the infrastructure and wait for the result
+match tx.commit() { 
+    TransactionResult::Ok => println!("OK"),
+    TransactionResult::Rollback(commit_err) => println!("ERROR but rollback OK"), 
+    TransactionResult::UnrecoverableError(commit_err, rollback_err) => println!("FATAL ERROR")
+};
+                        </code>
+                    </pre>
+                </div>
+                <a class="button" href="https://example.com/" target="_blank" title="Redirection to Github">
+                    <img src="./src/img/icone-github.svg" alt="Logo-Github">
+                    <span>Join us on Discord</span>
+                </a>
+                <a class="button" href="https://example.com/" target="_blank" title="Redirection to Discord">
+                    <img src="./src/img/icone-discord.svg" alt="Logo-Discord">
+                    <span>Join us on Discord</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="row" id='articles' >
+            <div class="col" data-aos="fade-down-right">
+                <article>
+                    <img src="./src/img/schem1.svg" alt="Schem">
+                    <h3>Deploy real world applications</h3>
+                    <p>Qovery Engine empowers you to deploy complex applications, such as a backend, a frontend, and a
+                        database in a very simple way. <br><br>Servers, networking, security, all is done by the Engine
+                        for
+                        you.</p>
+                    <a href="https://example.com/" title="See more">SEE MORE</a>
+                </article>
+            </div>
+            <div class="col" data-aos="fade-left">
+                <article>
+                    <img src="./src/img/schem2.svg" alt="Schem">
+                    <h3>Resiliency is key</h3>
+                    <p>Qovery Engine knows when something goes wrong on the deployment of your applications. Qovery
+                        Engine is built with resiliency in mind. <br> <br>A transactional engine inspired by what is
+                        provided into ACID databases has been developed at the heart of the product to rollback on a
+                        consistent and working application version when something goes wrong. </p>
+                    <a href="https://example.com/" title="See more">SEE MORE</a>
+                </article>
+            </div>
+            <div class="col" data-aos="fade-up-right">
+                <article>
+                    <img src="./src/img/schem3.svg" alt="Schem">
+                    <h3>On top of the best tools</h3>
+                    <p>Qovery Engine does not reinvent the wheel. It takes advantage of the best tools in the Cloud
+                        industry, such as Kubernetes, Terraform, and Helm to manage the deployment of the infrastructure
+                        and your applications.<br><br>Servers, networking, security, all is done by the Engine for you.
+                    </p>
+                    <a href="https://example.com/" title="See more">SEE MORE</a>
+                </article>
+            </div>
+            <div class="col" data-aos="fade-left" > 
+                <article>
+                    <img src="./src/img/schem4.svg" alt="Schem" >
+                    <h3>Extensible</h3>
+                    <p>Qovery Engine is built to be highly extensible. Adding the support of a Cloud provider or a
+                        Continuous Integration platform is as simple as implementing a simple programmatic interface.
+                    </p>
+                    <a href="https://example.com/" title="See more">SEE MORE</a>
+                </article>
+            </div>
+            <h2 data-aos="fade-up"
+            data-aos-duration="750">They use Qovery Engine</h2>
+        </div>
+        <div id="background"></div>
+    </main>
+
+    <footer class="row">
+        <div id='logo2'>
+            <img src="https://uploads-ssl.webflow.com/5de176bfd41c9b0a91bbb0a4/611449cdf061506c48ab8ade_qovery_square_new_logo.svg" alt="" class="logo-icon">
+            <h3>Qovery</h3>
+        </div>
+        <div class="row">
+            <div class="col" id='footer-link'>
+                <p>Qovery combines the power of Kubernetes, the reliability of AWS, and the
+                    simplicity of Heroku to deploy your apps.
+                </p>
+                <div>
+                    <a href="https://example.com/" title="Redirection to Github" target="_blank">
+                        <img src="./src/img/logo-discord.svg" alt="Logo Github">
+                    </a>
+                    <a href="https://example.com/" title="Redirection to linkedin" target="_blank">
+                        <img src="./src/img/logo-likendin.svg" alt="Logo linkedin">
+                    </a>
+                    <a href="https://example.com/" title="Redirection to Twitter" target="_blank">
+                        <img src="./src/img/logo-twitter.svg" alt="Logo Twitter">
+                    </a>
+                    <a href="https://example.com/" title="Redirection to Discord" target="_blank">
+                        <img src="./src/img/logo-discord.png" alt="Logo Discord">
+                    </a>
+                </div>
+                <iframe
+                src="https://ghbtns.com/github-btn.html?user=qovery&amp;repo=engine&amp;type=star&amp;count=true"
+                title="Qovery Engine Github"
+                data-lf-yt-playback-inspected-xbp1oaeooyl7edvj="true"></iframe>
+            </div>
+            <div class="col col-footer">
+                <h4 class="footer-heading">Resources</h4>
+                <a href="https://example.com/" title="Documentation">Documentation</a>
+                <a href="https://example.com/" title="Guides">Guides</a>
+                <a href="https://example.com/" title="Tutorials">Tutorials</a>
+                <a href="https://example.com/" title="Engineering">Engineering</a>
+                <a href="https://example.com/" title="Pricing">Pricing</a>
+                <a href="https://example.com/" title="API">API</a>
+                <a href="https://example.com/" title="Github">Github</a>
+            </div>
+            <div class="col col-footer">
+                <h4 class="footer-heading">Community</h4>
+                <a href="https://example.com/" title="Discord">Discord</a>
+                <a href="https://example.com/" title="Forum">Forum</a>
+                <a href="https://example.com/" title="Community call">Community call</a>
+                <a href="https://example.com/" title="Goodies">Goodies</a>
+                <a href="https://example.com/" title="Roadmap">Roadmap</a>
+            </div>
+            <div class="col col-footer">
+                <h4 class="footer-heading">Qovery vs. Other</h4>
+                <a href="https://example.com/" title="Heroku">Heroku</a>
+                <a href="https://example.com/" title="Netlify">Netlify</a>
+                <a href="https://example.com/" title="Terraform">Terraform</a>
+            </div>
+            <div class="col col-footer">
+                <h4 class="footer-heading">Company</h4>
+                <a href="https://example.com/" title="Blog">Blog</a>
+                <a href="https://example.com/" title="Jobs">Jobs</a>
+                <a href="https://example.com/" title="Team">Team</a>
+                <a href="https://example.com/" title="Investors">Investors</a>
+                <a href="https://example.com/" title="Terms">Terms</a>
+                <a href="https://example.com/" title="Contact">Contact</a>
+            </div>
+        </div>
+        <div class="row">
+            <h4>© 2021 DESIGNED BY QOVERY</h4>
+            <div class="vertical-divider"></div>
+            <h4>BACKED&nbsp;BY&nbsp;
+                <a href="https://example.com/" title="Redirection to TECHSTARS">
+                    TECHSTARS</a>
+            </h4>
+            <h4>PROUD&nbsp;SILVER&nbsp;MEMBER&nbsp;OF
+                <a href="https://example.com/" title="Redirection to Landscape.cncf.io">
+                    CNCF</a>&nbsp;AND&nbsp;
+                <a href="https://example.com/" title="Redirection to Linuxfoundation.org">
+                    LINUX&nbsp;FOUNDATION</a>
+            </h4>
+            <div class="vertical-divider"></div>
+            <h4>QOVERY BY BIRDSIGHT - ALL RIGHTS&nbsp;RESERVED</h4>
+        </div>
+    </footer>
+
+
+    <script src="./webfiles/js/highlight/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+    <script src="./webfiles/js/aos-master/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        easing: 'ease-in-out-sine'
+      });
+    </script>
+</body>
+
+</html>
